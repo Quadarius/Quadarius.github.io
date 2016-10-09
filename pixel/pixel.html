@@ -5,10 +5,23 @@
 		<title>quadarius.info</title>
 		<link rel="SHORTCUT ICON" href="../assets/favicon.png">
 		<link rel="stylesheet" href="../stylesheets/style.css">
-		<!-- P5 -->
-		<script language="javascript" src="../lib/p5/p5.js"></script>
-		<script language="javascript" src="../lib/p5/p5.dom.js"></script>
-		<script language="javascript" src="./pixel.js"></script>
+		<style>
+			button, input,
+			#save{
+				margin-right: 1em;
+				padding: .2em;
+				font-size: 1.3em;
+				border: .1em solid #171412;
+				color: #C6C2B6;
+				background-color:  #614E6E;
+				border-radius: .1em;
+				box-shadow: .1em .1em .1em #000;
+			}
+			button:hover, input:hover,
+			#save:hover{
+				background-color: #C3272B;
+			}
+		</style>
 	</head>
 	<body>
 		<div>
@@ -17,9 +30,68 @@
 			</a>
 		</div>
 
-		<section  class="container">
-			<div id="myCanvas" style="width:100%; height:100%;"></div>
+		<section id="container" class="container">
+			<div class="controls">
+				<p>Move the sliders to change the level of sorting. The red slider works best</p>
+				<a id="save" download="PixelSorter.png">Save Image</a>
+				<input type="file" id="fileinput">
+				Red:
+				<input id="rsld" type="range" name="Red" value="103" min="0" max="255">
+				Green:
+				<input id="gsld" type="range" name="Green" value="105" min="0" max="255">
+				Blue:
+				<input id="bsld" type="range" name="Blue" value="128" min="0" max="255">
+				<button id="renderbtn" type="button">Render</button>
+			</div>
+			<!-- <canvas id="canvas"></canvas> -->
 		</section>
+		<script language="javascript" src="./pixel.js"></script>
+		<script language="javascript">
+		window.onload = function(){
+			var fileInput = document.getElementById('fileinput'),
+				renderButton = document.getElementById('renderbtn'),
+				newCanvas;
+			var imguri;
+			var rval = 103, gval = 105, bval = 128;
 
+			function render(){
+				//alert('rendering');
+				newCanvas = PixelSorter.init(imguri, rval, gval, bval);
+				document.getElementById('container').appendChild(newCanvas);
+			}
+
+			function handleImage(){
+				if(this.files && this.files[0]){
+
+					var fileReader = new FileReader();
+					fileReader.onload = function(e){
+						imguri = e.target.result;
+					}
+					fileReader.readAsDataURL(this.files[0]);
+				}
+			}
+
+			function saveImage(){
+				console.log('saving');
+				var image = newCanvas.toDataURL("image/png");//.replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+				this.href=image;
+			}
+
+			fileInput.addEventListener("change", handleImage, false);
+			renderButton.addEventListener("click", render, false);
+			document.getElementById('rsld').addEventListener("change", function(){
+				rval = this.value || this.defaultValue;
+			}, false);
+			document.getElementById('gsld').addEventListener("change", function(){
+				gval = this.value || this.defaultValue;
+			}, false);
+			document.getElementById('bsld').addEventListener("change", function(){
+				bval = this.value || this.defaultValue;
+			}, false);
+			document.getElementById('save').addEventListener("click", saveImage, false);
+
+			render();
+		}
+		</script>
 	</body>
 </html>

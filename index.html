@@ -6,12 +6,88 @@
     <title>quadarius.info</title>
     <link rel="SHORTCUT ICON" href="./assets/favicon.png">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <script type="text/javascript">
+        window.requestAnimFrame = (function(){
+            return  window.requestAnimationFrame       ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame    ||
+                    function( callback ){
+                        window.setTimeout(callback, 1000 / 60);
+                    };
+        })();
+
+        window.speechSynthesis.speak(new SpeechSynthesisUtterance("Hello, Welcome to this website."));
+
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+
+            var numstars = 400,
+                radius = 1,
+                focalLength = window.innerWidth;
+
+            var cx, cy;
+
+            var stars = [], star;
+
+            var animate = true;
+
+            function setup(){
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight/3;
+
+                cx = canvas.width / 2;
+                cy = canvas.height / 2;
+
+                for(var i = 0; i < numstars; i++){
+                    stars.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        z: Math.random() * canvas.width
+                    })
+                }
+            }
+
+            function draw(){
+                if(animate) requestAnimFrame(draw);
+                starLoop();
+            }
+            ///////////////////////////////////////////////////
+            function starLoop(){
+                ctx.fillStyle = "black";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "white";
+
+                for(var i = 0; i < numstars; i++){
+                    star = stars[i];
+                    star.z--;
+
+                    if(star.z <= 0){
+                        star.z = canvas.width;
+                    }
+
+                    pixelX = (star.x - cx) * (focalLength / star.z);
+                    pixelX += cx;
+                    pixelY = (star.y - cy) * (focalLength / star.z);
+                    pixelY += cy;
+
+                    ctx.beginPath();
+                    ctx.arc(pixelX, pixelY, radius *(focalLength / star.z), 0, 2 *Math.PI);
+                    ctx.fill();
+                }
+            }
+
+            setup();
+            draw();
+        }
+    </script>
 </head>
 
 <body>
     <header>
         <h1 class="name">quadarius.info</h1>
     </header>
+    <canvas id="canvas" width="100%" height="100%"></canvas>
     <section id="aboutme" class="container" hidden>
         <div class="link">
             <a href="about.html">about quadarius
@@ -33,8 +109,7 @@
         </div>
         <div class="link">
             <a href="./pixel/pixel.html">
-                <img  class="linkimg" src="" alt="glitchy glitch pixel sorter">
-                This isn't really done. The other projects aren't really done either but this one is pretty far from usable
+                <img  class="linkimg" src="./assets/pixel.png" alt="glitchy glitch pixel sorter">
             </a>
         </div>
     </section>

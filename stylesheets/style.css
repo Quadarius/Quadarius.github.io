@@ -112,6 +112,10 @@ footer{
     color: #4D646C;
 }
 
+.text-container {
+    margin: 1em 2em;
+    padding: 1em;
+}
 
 .project-container {
     text-align: center;

@@ -1,129 +1,25 @@
-/* #FFDDCA*/
-@import 'https://fonts.googleapis.com/css?family=Varela+Round';
-
-:root {
-  font-size: calc(0.5em + 1vh);
-}
-
-html, body{
+html, body {
     margin: 0;
     padding: 0;
 }
 body {
-    /*padding: 1em;*/
-    font-family: 'Varela Round', sans-serif;
-
+    background-image:    linear-gradient(
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.5)
+    ), url('../assets/bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
 }
-
-a{
-    color: #171412;
-
-    font-size: 2rem;
+a {
     text-decoration: none;
+    overflow: hidden;
 }
 
-a:hover{
-    background-color: #C3272B;
-}
-
-canvas {
-    display: block;
-    margin: auto;
-}
-
-footer{
-    /*position: absolute;*/
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding-top: 2em;
-    padding-bottom: .2em;
-    clear: both;
-    text-align: center;
-    font-size: .7em;
-    /*background-color: #C6C2B6;*/
-}
-
-::selection {
-    background: #C3272B;
-}
-
-.fact{
-    font-size: 2em;
-}
-
-.fact:hover{
-
-}
-
-.bottomlink{
-    position: fixed;
-    bottom: 0;
-    font-size: .75em;
-    color: #EBF6F7;
-}
+/* content */
 .container {
-    position: relative;
-    margin-top: 2em;
-}
-
-.canvas-container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-}
-
-.controls{
-    margin: 1em auto;
+    height: 100vh;
     text-align: center;
-}
-
-.link {
-    z-index: 10;
-    display: inline-block;
-    margin: 1em;
-    width: 20vw;
-    padding: .25em;
-    /*background-color:  #;*/
-    transition: all .2s ease-in-out;
-}
-
-.linkimg {
-    z-index: 11;
-    width: 20vw;
-}
-
-.name{
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    padding: .4em;
-    margin: 0;
-    display: inline-block;
-    width: auto;
-    color: #C6C2B6;
-    font-size: 1.25rem;
-    transition: all .2s ease-in-out;
-}
-
-.name:hover{
-    color: #4D646C;
-}
-
-
-.project-container {
-    text-align: center;
-}
-
-.portrait {
-    display: inline-block;
-    height: 50vmin;
-    /*width: 30%*/
-
-}
-.portrait > img {
-    max-width: 100%;
-    max-height: 100%;
 }

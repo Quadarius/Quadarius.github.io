@@ -2,125 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>quadarius.info</title>
-    <link rel="SHORTCUT ICON" href="./assets/favicon.png">
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <script type="text/javascript">
-        window.requestAnimFrame = (function(){
-            return  window.requestAnimationFrame       ||
-                    window.webkitRequestAnimationFrame ||
-                    window.mozRequestAnimationFrame    ||
-                    function( callback ){
-                        window.setTimeout(callback, 1000 / 60);
-                    };
-        })();
-
-        window.speechSynthesis.speak(new SpeechSynthesisUtterance("Hello, Welcome to this website."));
-
-        window.onload = function(){
-            var canvas = document.getElementById('canvas');
-            var ctx = canvas.getContext('2d');
-
-            var numstars = 400,
-                radius = 1,
-                focalLength = window.innerWidth;
-
-            var cx, cy;
-
-            var stars = [], star;
-
-            var animate = true;
-
-            function setup(){
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight/3;
-
-                cx = canvas.width / 2;
-                cy = canvas.height / 2;
-
-                for(var i = 0; i < numstars; i++){
-                    stars.push({
-                        x: Math.random() * canvas.width,
-                        y: Math.random() * canvas.height,
-                        z: Math.random() * canvas.width
-                    })
-                }
-            }
-
-            function draw(){
-                if(animate) requestAnimFrame(draw);
-                starLoop();
-            }
-            ///////////////////////////////////////////////////
-            function starLoop(){
-                ctx.fillStyle = "black";
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = "white";
-
-                for(var i = 0; i < numstars; i++){
-                    star = stars[i];
-                    star.z--;
-
-                    if(star.z <= 0){
-                        star.z = canvas.width;
-                    }
-
-                    pixelX = (star.x - cx) * (focalLength / star.z);
-                    pixelX += cx;
-                    pixelY = (star.y - cy) * (focalLength / star.z);
-                    pixelY += cy;
-
-                    ctx.beginPath();
-                    ctx.arc(pixelX, pixelY, radius *(focalLength / star.z), 0, 2 *Math.PI);
-                    ctx.fill();
-                }
-            }
-
-            setup();
-            draw();
-        }
-    </script>
+	<meta charset="UTF-8">
+	<title>quadarius.com</title>
+	<link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
 <body>
-    <header>
-        <h1 class="name">quadarius.info</h1>
-    </header>
-    <canvas id="canvas" width="100%" height="100%"></canvas>
-    <section id="aboutme" class="container" hidden>
-        <div class="link">
-            <a href="about.html">about quadarius
-                <img class="linkimg"src="./assets/quadarius.png" alt="Quadarius Moore Face">
-            </a>
+    <a href="http://quadarius.com/works">
+        <div class="container">
+            <!-- <h1>Quadarius Moore</h1> -->
         </div>
-    </section>
-
-    <section id="projects" class="container">
-        <div class="link">
-            <a href="./paint/index.html">
-                <img class="linkimg" src="./assets/paint.png" alt="many colors mouse doodle" />
-            </a>
-        </div>
-        <div class="link">
-            <a href="./block/index.html">
-                <img class="linkimg" src="./assets/block.png" alt="one block into many" />
-            </a>
-        </div>
-        <div class="link">
-            <a href="./pixel/pixel.html">
-                <img  class="linkimg" src="./assets/pixel.png" alt="glitchy glitch pixel sorter">
-            </a>
-        </div>
-    </section>
-
-    <div>
-        <a class="bottomlink" href="https://youtu.be/y5yPh8trI9k" style="right: 0;">be happy</a>
-    </div>
-    <footer>
-        <p style="margin-bottom: 0;">© 20XX Quadarius Moore</p>
-        <p style="margin-top: 0;">Made with ❤️</p>
-    </footer>
+    </a>
 </body>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

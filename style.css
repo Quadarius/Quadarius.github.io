@@ -1,128 +1,165 @@
-/*:root {
-  font-size: calc(0.5em + 1vmax);
-}*/
-
-html, body {
+html,
+body
+{
+    height: 100%;
     margin: 0;
     padding: 0;
-    height: 100%;
 }
-body {
+body
+{
+    font-family: 'Georgia',serif;
     font-size: 16px;
-    line-height: 1.5em;
-    font-family: "Georgia",serif;
     font-weight: 400;
-    color:  #27221F;
-    background: : #EBF6F7;
-    -webkit-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out
+    line-height: 1.5em;
+
+    -webkit-transition: all .2s ease-out;
+            transition: all .2s ease-out;
+
+    color: #27221f;
+    background: #ebf6f7;
 }
-header {
-    padding-bottom: 0.75em;
+header
+{
     margin-bottom: 3em;
-    border-bottom: 2px solid rgba(154,134,124,0.2);
+    padding-bottom: .75em;
+
+    border-bottom: 2px solid rgba(154,134,124,.2);
 }
-a {
-    text-decoration: none;
-    color: #97867C;
+a
+{
     overflow: hidden;
+
+    text-decoration: none;
+
+    color: #97867c;
 }
 
-h1 {
+h1
+{
     font-size: 3em;
     font-weight: 700;
+    line-height: 1em;
+
     margin-bottom: 0;
-    padding-bottom: 0.75rem;
-    line-height: 1em
+    padding-bottom: .75rem;
 }
 
-@media (min-width: 480px) {
-    h1 {
-        font-size:4em
+@media (min-width: 480px)
+{
+    h1
+    {
+        font-size: 4em;
     }
 }
 
-
-
-.page-container {
+.page-container
+{
     max-width: 30em;
     margin: 1em auto 3em;
-    padding: 0.5em;
+    padding: .5em;
 }
-@media (min-width: 480px) {
-    .page-container {
-        font-size:18px;
-        -webkit-transition: all 0.2s ease-out;
-        transition: all 0.2s ease-out
+@media (min-width: 480px)
+{
+    .page-container
+    {
+        font-size: 18px;
+
+        -webkit-transition: all .2s ease-out;
+                transition: all .2s ease-out;
     }
 }
 
-@media (min-width: 768px) {
-    .page-container {
-        font-size:22px;
-        -webkit-transition: all 0.2s ease-out;
-        transition: all 0.2s ease-out
+@media (min-width: 768px)
+{
+    .page-container
+    {
+        font-size: 22px;
+
+        -webkit-transition: all .2s ease-out;
+                transition: all .2s ease-out;
     }
 }
 
-@media (min-width: 1366px) {
-    .page-container {
-        font-size:26px;
-        -webkit-transition: all 0.2s ease-out;
-        transition: all 0.2s ease-out
+@media (min-width: 1366px)
+{
+    .page-container
+    {
+        font-size: 26px;
+
+        -webkit-transition: all .2s ease-out;
+                transition: all .2s ease-out;
     }
 }
 
-@media (min-width: 1600px) {
-    .page-container {
-        font-size:32px;
-        -webkit-transition: all 0.2s ease-out;
-        transition: all 0.2s ease-out
+@media (min-width: 1600px)
+{
+    .page-container
+    {
+        font-size: 32px;
+
+        -webkit-transition: all .2s ease-out;
+                transition: all .2s ease-out;
     }
 }
 
-.intro {
+.intro
+{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     height: 90vh;
+
+    background-color: #464646;
     background-image: url('./assets/img/bg.jpg');
     background-position: center;
     background-size: cover;
-    background-color: #464646;
+
+    justify-content: center;
 }
-.intro .text-content {
-    font-family: "Open Sans", sans-serif;
+.intro .text-content
+{
+    font-family: 'Open Sans', sans-serif;
 }
-.intro .text-content p{
+.intro .text-content p
+{
     font-size: 1.33em;
 }
-.intro .text-content h1{
-    margin-top: 0;
+.intro .text-content h1
+{
     font-size: 3em;
     /*line-height: 2;*/
     font-weight: 600;
+
+    margin-top: 0;
 }
-.intro .text {
+.intro .text
+{
     padding: 4rem;
+
     border-radius: .25em;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,.6);
 }
 
-.text-content {
-    width: 100%;
-    text-align: center;
+.text-content
+{
     line-height: 1.6;
+
+    width: 100%;
+
+    text-align: center;
     /*background-color: #464646;*/
 }
-.text-content p {
+.text-content p
+{
     font-size: 1.25em;
 }
 
-.text{
+.text
+{
     margin: 0 auto;
     padding: 1em;
 }
-.grey{
-    background: #cccccc;
+.grey
+{
+    background: #ccc;
 }

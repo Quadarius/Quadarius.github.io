@@ -20,7 +20,7 @@ body
 
 h1
 {
-    font-size: 7.8vw;
+    font-size: 2.5em;
 
     float: left;
 
@@ -44,7 +44,7 @@ ul
 
 .menu
 {
-    font-size: 24px;
+    font-size: .5em;
 
     float: right;
 
@@ -58,6 +58,16 @@ ul
 .about
 {
     clear: both;
+}
 
-    text-align: center;
+@media (max-width: 768px)
+{
+    body {
+        font-size: 24px;
+    }
+    .menu
+    {
+        font-size: 1em;
+        float: right;
+    }
 }

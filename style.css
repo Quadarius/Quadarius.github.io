@@ -68,6 +68,12 @@ ul
     .menu
     {
         font-size: 1em;
-        float: right;
+    }
+    h1 {
+        float: none;
+        writing-mode:horizontal-tb;
+    }
+    article {
+        clear: both;
     }
 }
